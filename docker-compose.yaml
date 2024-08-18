@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  leetcode_tasks:
+    container_name: 'app_leetcode_tasks'
+    
+    build:
+      context: .
+
+    env_file:
+      - "./.env"
+
+    environment:
+      TZ: 'Europe/Moscow'
+      PYTHONUNBUFFERED: 0
+
+    volumes:
+      - ${dir_result}:/usr/src/result
+      - ${dir_log}:/usr/src/log
+      - ${dir_data}:/usr/src/data
